@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/09/05 16:07:22.000.818,=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/09/12 17:11:08.000.848,=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/09/13 14:59:26.000.266,=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/09/13 15:01:32.000.178,C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmMain.dfm</Transaction>
+    <Transaction>2023/09/13 15:01:32.000.178,C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmMain.pas</Transaction>
+    <Transaction>2023/09/13 15:03:02.000.539,C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\DelphiCRUDMVC.dproj</Transaction>
+    <Transaction>2023/09/13 15:53:25.000.962,=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\Unit1.pas</Transaction>
+    <Transaction>2023/09/13 15:55:07.000.488,C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmRegisterCustomer.dfm=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\Unit1.dfm</Transaction>
+    <Transaction>2023/09/13 15:55:07.000.488,C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmRegisterCustomer.pas=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\Unit1.pas</Transaction>
+    <Transaction>2023/09/13 16:40:13.000.011,C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmBaseForm.dfm=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmRegisterCustomer.dfm</Transaction>
+    <Transaction>2023/09/13 16:40:13.000.011,C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmBaseForm.pas=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\Projects\Win32\Debug\Delphi-CRUD-MVC\src\view\uFrmRegisterCustomer.pas</Transaction>
+  </Transactions>
+</BorlandProject>

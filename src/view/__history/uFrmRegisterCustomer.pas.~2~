@@ -1,0 +1,33 @@
+unit uFrmRegisterCustomer;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TFrmCustomerRegister = class(TForm)
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCustomerRegister: TFrmCustomerRegister;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmCustomerRegister.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+    begin
+      Perform (WM_NEXTDLGCTL, 0, 0);
+    end;
+end;
+
+end.
