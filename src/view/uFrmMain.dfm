@@ -10,6 +10,7 @@ object FrmMain: TFrmMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -45,6 +46,7 @@ object FrmMain: TFrmMain
         ParentShowHint = False
         ShowHint = False
         TabOrder = 0
+        OnClick = btnCustomersClick
       end
       object btnProducts: TButton
         Left = 16
@@ -63,16 +65,15 @@ object FrmMain: TFrmMain
       Align = alTop
       BevelOuter = bvNone
       Caption = 'Seller Program'
+      Color = 16447736
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Inter'
       Font.Style = []
+      ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 48
-      ExplicitTop = 24
-      ExplicitWidth = 185
       object Image1: TImage
         Left = 32
         Top = 10
@@ -159,5 +160,16 @@ object FrmMain: TFrmMain
           FFDBFF00}
       end
     end
+  end
+  object pnlContent: TPanel
+    Left = 217
+    Top = 0
+    Width = 645
+    Height = 638
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitWidth = 639
+    ExplicitHeight = 629
   end
 end

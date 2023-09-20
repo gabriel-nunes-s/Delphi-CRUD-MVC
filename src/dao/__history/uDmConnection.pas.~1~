@@ -1,0 +1,26 @@
+unit uDmConnection;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr;
+
+type
+  TdmConnection = class(TDataModule)
+    SQLConnection: TSQLConnection;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmConnection: TdmConnection;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

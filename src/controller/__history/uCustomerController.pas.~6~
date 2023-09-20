@@ -1,0 +1,34 @@
+unit uCustomerController;
+
+interface
+
+uses
+  uCustomerModel, uDmCustomer;
+
+type
+  TCustomerController = class
+  private
+
+  public
+    function Insert(oCustomer: TCustomer; var sError: String): Boolean;
+    function Modify(oCustomer: TCustomer; var sError: String): Boolean;
+  end;
+
+implementation
+
+{ TCustomerController }
+
+function TCustomerController.Insert(oCustomer: TCustomer;
+  var sError: String): Boolean;
+
+begin
+  Result := DataModule1.Insert(oCustomer, sError);
+end;
+
+function TCustomerController.Modify(oCustomer: TCustomer;
+  var sError: String): Boolean;
+begin
+  Result := DataModule1.Modify(oCustomer, sError);
+end;
+
+end.

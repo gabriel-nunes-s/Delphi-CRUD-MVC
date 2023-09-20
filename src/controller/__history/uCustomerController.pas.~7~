@@ -1,0 +1,48 @@
+unit uCustomerController;
+
+interface
+
+uses
+  uCustomerModel, uDmCustomer;
+
+type
+  TCustomerController = class
+  private
+
+  public
+    procedure LoadCustomer(oCustomer: TCustomer; iCode: Integer);
+    function Insert(oCustomer: TCustomer; var sError: String): Boolean;
+    function Modify(oCustomer: TCustomer; var sError: String): Boolean;
+    function Delete(iCode: Integer; var sError: String): Boolean;
+  end;
+
+implementation
+
+{ TCustomerController }
+
+function TCustomerController.Delete(iCode: Integer;
+  var sError: String): Boolean;
+begin
+  Result := DataModule1.Delete(iCode, sError);
+end;
+
+function TCustomerController.Insert(oCustomer: TCustomer;
+  var sError: String): Boolean;
+
+begin
+  Result := DataModule1.Insert(oCustomer, sError);
+end;
+
+procedure TCustomerController.LoadCustomer(oCustomer: TCustomer;
+  iCode: Integer);
+begin
+  DataModule1.LoadCustomer(oCustomer, iCode);
+end;
+
+function TCustomerController.Modify(oCustomer: TCustomer;
+  var sError: String): Boolean;
+begin
+  Result := DataModule1.Modify(oCustomer, sError);
+end;
+
+end.

@@ -1,0 +1,30 @@
+unit uDmConnection;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr, FireDAC.Phys.FBDef,
+  FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.IBBase, FireDAC.Phys.FB;
+
+type
+  TdmConnection = class(TDataModule)
+    SQLConnection: TSQLConnection;
+    FDPhysFBDriverLink: TFDPhysFBDriverLink;
+
+  private
+    procedure FDPhysFBDriverLinkDriverCreated(Sender: TObject);
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmConnection: TdmConnection;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

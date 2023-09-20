@@ -1,0 +1,64 @@
+unit uDmCustomer;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Datasnap.DBClient,
+  Datasnap.Provider, Data.DB, Data.SqlExpr, uDmConnection, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TDataModule1 = class(TDataModule)
+    FDQuerySearch: TFDQuery;
+    FDQueryInsert: TFDQuery;
+    FDQueryModify: TFDQuery;
+    FDQueryDelete: TFDQuery;
+    FDQuerySearchID: TIntegerField;
+    FDQuerySearchNAME: TStringField;
+    FDQuerySearchPHONE: TStringField;
+  private
+    
+  public
+    function GerarID: Integer;
+    procedure Pesquisar (sNome : String);
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TDataModule1 }
+
+function TDataModule1.GerarID: Integer;
+var
+  sqlSequencia: TSQLDataSet;
+begin
+  sqlSequencia := TSQLDataSet.Create(nil);
+  try
+    // Configurando o comando SQL para obter a próxima sequência numérica para um novo cliente na tabela CUSTOMER.
+    // Calcula o valor máximo da coluna 'id' na tabela e adiciona 1
+    with sqlSequencia do
+    begin
+      SQLConnection := TSQLConnection(dmConnection.FDConnection);
+      CommandText := 'select coalesce(max(id), 0) + 1 as seq from CUSTOMER';
+      Open;
+      Result := sqlSequencia.FieldByName('seq').AsInteger;
+    end;
+  finally
+    FreeAndNil(sqlSequencia);
+  end;
+end;
+
+procedure TDataModule1.Pesquisar(sNome: String);
+begin
+  
+end;
+
+end.

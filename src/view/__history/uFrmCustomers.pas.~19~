@@ -1,0 +1,197 @@
+unit uFrmCustomers;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmBaseForm, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.WinXCtrls, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.Mask,
+  uCustomerController, uCustomerModel, uDmCustomer;
+
+type
+  TOperation = (opNew, opEdit, opNavigate);
+
+  TFrmCustomerRegister1 = class(TFrmCustomerRegister)
+    edtID: TLabeledEdit;
+    edtName: TLabeledEdit;
+    cbxType: TComboBox;
+    edtDocument: TLabeledEdit;
+    edtPhone: TLabeledEdit;
+    lblType: TLabel;
+    pnlBtnsCad: TPanel;
+    btnEdit: TButton;
+    btnSave: TButton;
+    btnCancel: TButton;
+    Panel1: TPanel;
+    pnlReturn: TPanel;
+    Image1: TImage;
+    procedure FormShow(Sender: TObject);
+  private
+    FOperation: TOperation;
+    procedure New;
+    procedure Detail;
+    procedure Config;
+    procedure Search;
+    procedure LoadCustomer;
+    procedure List;
+    procedure Modify;
+    procedure Delete;
+    procedure Insert;
+  end;
+
+var
+  FrmCustomerRegister1: TFrmCustomerRegister1;
+
+implementation
+
+{$R *.dfm}
+
+{ TFrmCustomerRegister1 }
+
+procedure TFrmCustomerRegister1.Config;
+begin
+  TabSearch.TabVisible := true;
+  TabData.TabVisible := false;
+  pgcMain.ActivePage := TabSearch;
+end;
+
+procedure TFrmCustomerRegister1.Delete;
+var
+  oCustomerController : TCustomerController;
+  sError : String;
+  
+begin
+  oCustomerController := TCustomerController.Create();
+  try
+    if (DataModule1.FDQuerySearch.Active) and (DataModule1.FDQuerySearch.RecordCount > 0) then
+    begin
+      if MessageDlg('Do you really want to delete this customer?', mtConfirmation, [mbYes, mbNo], 0) = IDYES then
+      begin
+        if oCustomerController.Delete(DataModule1.FDQuerySearchID.AsInteger, sError) = False then
+          raise Exception.Create('sError');
+        oCustomerController.Search(edtSearch.Text);
+      end;
+    end
+    else
+    begin
+      raise Exception.Create('There is no registers for being excluded');
+    end;
+  finally
+    FreeAndNil(oCustomerController);
+  end;
+end;
+
+procedure TFrmCustomerRegister1.Detail;
+begin
+  //It changes to Data tab for more details
+  FOperation := opNavigate;
+  pgcMain.ActivePage := TabData;
+end;
+
+procedure TFrmCustomerRegister1.FormShow(Sender: TObject);
+begin
+  inherited;
+  Config
+end;
+
+procedure TFrmCustomerRegister1.Insert;
+var
+  oCustomer: TCustomer;
+  oCustomerController: TCustomerController;
+  sError: String;
+begin
+   oCustomer := TCustomer.Create();
+   oCustomerController := oCustomerController.Create();
+   try
+    with oCustomer do
+    begin
+      ID := 0;
+      Name := edtName.Text;
+      TypeCustomer := cbxType.Text;
+      Document := edtDocument.Text;
+      Phone := edtPhone.Text;
+    end;
+    if oCustomerController.Insert(oCustomer, sError) = False then
+      raise Exception.Create('sError');
+    
+   finally
+     FreeAndNil(oCustomer);
+     FreeAndNil(oCustomerController);
+   end;
+end;
+
+procedure TFrmCustomerRegister1.List;
+begin
+  pgcMain.ActivePage := TabSearch;
+  TabData.TabVisible := False;
+end;
+
+procedure TFrmCustomerRegister1.LoadCustomer;
+var
+  oCustomer : TCustomer;
+  oCustomerController: TCustomerController;
+begin
+  oCustomer := TCustomer.Create;
+  oCustomerController := TCustomerController.Create;
+  try
+    oCustomerController.LoadCustomer(oCustomer, dsSearch.DataSet.FieldByName('id').AsInteger);
+    with oCustomer do
+    begin
+      edtID.Text := IntToStr(ID);
+      edtName.Text := Name;
+      edtDocument.Text := Document;
+      edtPhone.Text := Phone;
+      cbxType.Text := TypeCustomer;
+    end;
+  finally
+    FreeAndNil(oCustomer);
+    FreeAndNil(oCustomerController);
+  end;
+end;
+
+procedure TFrmCustomerRegister1.Modify;
+var
+  oCustomer : TCustomer;
+  oCustomerController: TCustomerController;
+  sError : String;
+begin
+  oCustomer := TCustomer.Create();
+  oCustomerController := oCustomerController.Create();
+  try
+    with oCustomer do
+    begin
+      ID := StrToIntDef(edtID.Text, 0);
+      Name := edtName.Text;
+      TypeCustomer := cbxType.Text;
+      Document := edtDocument.Text;
+      Phone := edtPhone.Text;
+    end;
+
+    if oCustomerController.Modify(oCustomer, sError) then
+      raise Exception.Create('sError');
+    
+  finally
+    FreeAndNil(oCustomer);
+    FreeAndNil(oCustomerController);
+  end;
+end;
+
+procedure TFrmCustomerRegister1.New;
+begin
+  FOperation := opNew; //The query will be "insert"
+  pgcMain.ActivePage := TabData;
+end;
+
+procedure TFrmCustomerRegister1.Search;
+var
+  oCustomerController : TCustomerController;
+begin
+  oCustomerController := TCustomerController.Create();
+  try
+    oCustomerController.Search(edtSearch.text);
+  finally
+    FreeAndNil(oCustomerController);
+  end;
+end;
+
+end.

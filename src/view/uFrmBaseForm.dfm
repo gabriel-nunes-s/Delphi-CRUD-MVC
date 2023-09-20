@@ -35,7 +35,7 @@ object FrmCustomerRegister: TFrmCustomerRegister
       OnClick = btnCloseClick
     end
   end
-  object PageControl1: TPageControl
+  object pgcMain: TPageControl
     Left = 0
     Top = 0
     Width = 628
@@ -56,11 +56,12 @@ object FrmCustomerRegister: TFrmCustomerRegister
         BevelOuter = bvNone
         TabOrder = 0
         ExplicitWidth = 614
-        object SearchBox1: TSearchBox
+        object edtSearch: TSearchBox
           Left = 16
           Top = 8
           Width = 201
           Height = 23
+          ImeName = 'Portuguese (Brazilian ABNT)'
           TabOrder = 0
           TextHint = 'Serach by name'
         end

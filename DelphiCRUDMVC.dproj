@@ -110,6 +110,22 @@
             <Form>FrmCustomerRegister</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\view\uFrmCustomers.pas">
+            <Form>FrmCustomerRegister1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\model\uCustomerModel.pas"/>
+        <DCCReference Include="src\controller\uCustomerController.pas"/>
+        <DCCReference Include="src\dao\uDmConnection.pas">
+            <Form>dmConnection</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\dao\uDmCustomer.pas">
+            <Form>DataModule1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

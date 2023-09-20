@@ -1,0 +1,9 @@
+object dmConnection: TdmConnection
+  Height = 750
+  Width = 1000
+  PixelsPerInch = 120
+  object SQLConnection: TSQLConnection
+    Left = 64
+    Top = 40
+  end
+end

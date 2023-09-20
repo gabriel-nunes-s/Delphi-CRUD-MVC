@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.CategoryButtons;
+  Vcl.CategoryButtons, uFrmCustomers;
 
 type
   TFrmMain = class(TForm)
@@ -15,6 +15,8 @@ type
     Panel2: TPanel;
     Image1: TImage;
     btnProducts: TButton;
+    pnlContent: TPanel;
+    procedure btnCustomersClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,5 +29,26 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmMain.btnCustomersClick(Sender: TObject);
+var
+  FUFrmCustomer : TFrmCustomerRegister1;
+begin
+
+  FUFrmCustomer := TFrmCustomerRegister1.Create(nil);
+  try
+    if Assigned(FUFrmCustomer) then
+    begin
+      FUFrmCustomer.Parent := pnlContent;
+      FUFrmCustomer.Align := alClient;
+      FUFrmCustomer.Show;
+//      btnCustomers.Enabled := false;
+    end
+
+  finally
+
+  end;
+
+end;
 
 end.

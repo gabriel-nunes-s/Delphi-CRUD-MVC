@@ -1,0 +1,45 @@
+object DataModule1: TDataModule1
+  Height = 750
+  Width = 1000
+  PixelsPerInch = 120
+  object SQLSearch: TSQLDataSet
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dmConnection.SQLConnection
+    Left = 104
+    Top = 56
+  end
+  object SQLInsert: TSQLDataSet
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dmConnection.SQLConnection
+    Left = 216
+    Top = 56
+  end
+  object SQLModify: TSQLDataSet
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dmConnection.SQLConnection
+    Left = 328
+    Top = 56
+  end
+  object SQLDelete: TSQLDataSet
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dmConnection.SQLConnection
+    Left = 440
+    Top = 56
+  end
+  object dspSearch: TDataSetProvider
+    DataSet = SQLSearch
+    Left = 272
+    Top = 184
+  end
+  object cdsSearch: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspSearch'
+    Left = 272
+    Top = 272
+  end
+end

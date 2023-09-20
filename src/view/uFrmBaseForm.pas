@@ -11,11 +11,11 @@ type
   TFrmCustomerRegister = class(TForm)
     pnlFooter: TPanel;
     btnClose: TButton;
-    PageControl1: TPageControl;
+    pgcMain: TPageControl;
     TabSearch: TTabSheet;
     TabData: TTabSheet;
     pnlSearch: TPanel;
-    SearchBox1: TSearchBox;
+    edtSearch: TSearchBox;
     pnlButtons: TPanel;
     btnDelete: TButton;
     btnDetail: TButton;
