@@ -9,8 +9,10 @@ object dmConnection: TdmConnection
   end
   object FDConnection: TFDConnection
     Params.Strings = (
+      
+        'Database=C:\Users\Gabriel\OneDrive\Documents\Embarcadero\Studio\' +
+        'Projects\Win32\Debug\Delphi-CRUD-MVC\PROJECT_CRUD.FDB'
       'ConnectionDef=ProjectCRUD')
-    Connected = True
     LoginPrompt = False
     Left = 248
     Top = 40
